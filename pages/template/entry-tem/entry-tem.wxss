@@ -1,0 +1,57 @@
+page{
+  background-color: white
+}
+
+
+.entry_container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
+  height: 80rpx;
+  line-height: 80rpx;
+  
+}
+
+/* .circle{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+} */
+
+.goods_name{
+  text-align:  left;
+  font-size: 32rpx;
+  margin-left: 30rpx;
+  width: 300rpx;
+}
+
+
+.goods_amount{
+  text-align:left;
+  width: 150rpx;
+  font-size: 28rpx;
+  margin-left: 30rpx;
+}
+
+.express_price{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 30rpx;
+}
+
+.pay_price{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 30rpx;
+}
+
+
+.more_detail{
+  width: 50rpx;
+  height: 50rpx;
+  float: right;
+  position: absolute;
+  right: 5rpx;
+}
+

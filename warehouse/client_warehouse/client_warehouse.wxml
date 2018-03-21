@@ -1,0 +1,28 @@
+<import src="/pages/template/client-tem/client-tem.wxml" />
+<import src="/pages/template/kongkong-tem/kongkong-tem.wxml" />
+
+<view wx:if="{{kongkong}}">
+  <template is="kongkong_tem" />
+</view>
+
+<scroll-view class='ware_con' scroll-y="true">
+  <block wx:key="objectId" wx:for="{{client_data}}">
+    <view class='entry'>
+      <view class='client_tem' style="left:{{item.txtstyle}}rpx; -webkit-transition:left {{item.ismove!=true?0.5:0}}s"  bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-obj-id="{{item.objectId}}" data-arr-id='{{index}}'>
+        <template is="client_tem" data="{{...item}}" />
+      </view>
+      <view class='delete' style="left:{{item.txtstyle}}rpx; -webkit-transition:left {{item.ismove!=true?0.5:0}}s" catchtap='det_client' data-obj-id="{{item.objectId}}" data-arr-id='{{index}}'>删除</view>
+    </view>
+  </block>
+<text class='more_text' catchtap='more_goods' wx:if="{{!kongkong}}">---查看更多---</text>
+</scroll-view>
+
+<!-- 按键区域 -->
+<view class='operate' wx:if="{{!kongkong}}">
+  <image class='ware_img' catchtap='warehouse' src='/image/icon/ware_btn.png' />
+  <image animation="{{animationData_upload}}" wx:if="{{!delete_operate}}" catchtap='{{!stop_catch? "upload":""}}' class='upload_img' src='/image/icon/upload.png' />
+  <image src='/image/icon/upload_disable.png' wx:if="{{delete_operate}}" class='upload_img' />
+</view>
+
+
+<!-- 备注：应该再按删除弹出确认窗,上传消失 -->

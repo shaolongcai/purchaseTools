@@ -1,0 +1,41 @@
+<!--pages/upload/modify/modify.wxml-->
+<!-- <button catchtap='test'>test</button> -->
+
+<form bindsubmit="bindsubmit">
+
+<view class='modify-container'>
+
+  <view class='banner-mod' catchtap='getImage'>
+    <!-- <image  class='chose_img' src='/image/icon/chose_img.png'></image> -->
+    <image mode='aspectFit' class="chose_img" src='{{imgUrl[0]}}' />
+  </view>
+
+  
+    <view class='goods-info-mod'>
+      <view class='goods-name-mod' >
+        <input placeholder="商品名称（必填）：" name="goods_name"  maxlength="15" ></input>
+      </view>
+
+      <view class='goods-price-mod' >
+        <input placeholder="售价（必填）：" type="number" name="goods_price"  maxlength="3" ></input>
+      </view>
+
+      <view class='goods-discount-mod'>
+        <input placeholder="成本：" type='number' name="goods_cost" maxlength="3" ></input>
+      </view>
+
+      <textarea name="goods_brief" class='goods-brief-con' placeholder="在此输入简介">
+      </textarea>
+    </view>
+
+    <text class='warn_text'>数据仅用于此小程序，并仅上传者可读写。</text>
+
+    <view class='bottom_button'>
+      <button class='add-goods' formType="submit" type='primary' >增加</button>
+      <button class='back' catchtap='back'>返回</button>
+    </view>
+
+ 
+
+</view>
+ </form>

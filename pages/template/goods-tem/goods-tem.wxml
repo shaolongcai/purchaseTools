@@ -1,0 +1,10 @@
+<template name="goods-tem">
+    <view class='goods_container'>
+      <image class="goods_img" src='{{imgUrl[0]}}' />
+      <view class='goods_info'>
+        <text class='goods_name'>名称：{{goods_name_change}}</text>
+        <text class='goods_price'>价格：{{price}}</text>
+      </view>
+        <image wx:if="{{onchose}}" class='onselect' src='/image/icon/tick.png' />    
+    </view>
+</template>

@@ -1,0 +1,47 @@
+<!--record/goods_detail/goods_detail.wxml-->
+<import src="/pages/template/goods-tem/goods-tem.wxml" />
+
+
+<view class='modify-container'>
+<view class='goods-info-mod'>
+  <view class='goods-name-mod'>
+    <text>商品名称：{{order_data.goods_name}}</text>
+  </view>
+
+  <view class='client-name'>
+    <text>客户名称：{{order_data.client_name}}</text>
+  </view>
+
+  <view class='goods_num'>
+    <text>商品数量：{{order_data.goods_num}}</text>
+  </view>
+
+  <view class='ifpay'>
+    <text>付费情况:</text>
+    <checkbox-group name="pay_state" bindchange="checkbox_change">
+      <checkbox disabled="true" checked="{{order_data.pay_state[0]==1 || order_data.pay_state[1]==1}}">邮费</checkbox>
+      <checkbox disabled="true" checked="{{order_data.pay_state[0]==2 || order_data.pay_state[1]==2}}">商品费</checkbox>
+    </checkbox-group>
+  </view>
+</view>
+
+
+<view class='bottom_button'>
+  <button class='add-goods' catchtap='change_pay' wx:if="{{order_data.pay_state.length!=2}}">修改付款情况</button>
+  <button class='delete' catchtap='delete_order' type='warn'>删除</button>
+  <button class='back' catchtap='back'>返回</button>
+</view>
+
+</view>
+
+
+<!-- 弹框 -->
+<view class='pay_toast' hidden="{{pay_toast}}">
+  <text class='pay_state_text'>付费情况</text>
+  <checkbox-group  bindchange="checkbox_change">
+      <checkbox value='1'>邮费</checkbox>
+      <checkbox value='2'>商品费</checkbox>
+  </checkbox-group>
+    <button class='confirm' catchtap='confirm'>确定</button>
+    <button class='cancel' catchtap='cancel'>取消</button>
+</view>

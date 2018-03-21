@@ -1,0 +1,22 @@
+<!--pages/goods-detail/goods-detail.wxml-->
+
+
+<view>
+
+   <image src='{{goods_detail.data.imgUrl[0]}}' style='width:100%;height:500rpx'></image>
+  
+
+  <view class='info'>
+    <text class='detail_name'>商品名称：{{goods_detail.data.goods_name}}</text>
+    <text class='detail_price'>售价：￥{{goods_detail.data.price}}</text>
+    <text class='detail_cost'>成本：￥{{goods_detail.data.cost}}</text>
+  </view>
+
+  <view class='detail_brief'>
+    <view class='title'>简介</view>
+    <textarea class='brief_text' readonly="readonly">
+      {{goods_detail.data.brief}}
+    </textarea>
+  </view>
+
+</view>

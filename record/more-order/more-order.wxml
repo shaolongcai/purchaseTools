@@ -1,0 +1,21 @@
+<!-- <template is="entry_tem" data="{{...item}}" /> -->
+<import src="/pages/template/entry-tem/entry-tem.wxml" />
+
+<!-- 历史列表代码 -->
+<block wx:for="{{res_arr}}" wx:for-index="res_id">
+  <view>
+    <view class='data_container'>
+      <text class='date_text'>{{date_arr[res_id]}}</text>
+      <view class='line'></view>
+    </view>
+
+    <block wx:key="item.client_objId"  wx:for="{{item}}">
+      <view class='entry_tem' catchtap='detail' data-objId='{{item.goods_objId}}' data-orderId='{{item.objectId}}'>
+        <template is="entry_tem" data="{{...item}}" />
+      </view>
+    </block>
+  </view>
+</block>
+
+ <text class='more_text' catchtap='more_order'>---查看更多---</text>
+

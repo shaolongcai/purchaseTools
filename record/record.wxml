@@ -1,0 +1,56 @@
+<!--pages/record/record.wxml-->
+<import src="/pages/template/entry-tem/entry-tem.wxml" />
+
+
+
+<view class='container'>
+  <!-- 总览面板 -->
+  <view class='general_panel'>
+    <image class='canlendar'></image>
+    <view class='to_buy'>
+      <text class='buy_num'>{{all_pay_count}}</text>
+      <text class='point_text'>总订单数</text>
+    </view>
+    <view class='to_pay'>
+      <text class='pay_num'>{{paying_count}}</text>
+      <text class='point_text'>未付款订单数</text>
+    </view>
+  </view>
+
+  <!-- 记录按键 -->
+  <view class='button_con'>
+    <button class='record_btn' type="primary" catchtap='upload_order'>记一个</button>
+    <!-- <button class='shopping'><image></image></button> -->
+  </view>
+
+  <!-- 商品提示区域 -->
+  <view class='pay_style'>
+    <text class='pay_title_text'>已付款商品</text>
+    <block wx:key="objectId" wx:for="{{order_info_paid}}">
+    <view catchtap='detail' data-goodsId='{{item.goods_objId}}' data-orderId='{{item.objectId}}'>
+    <template is="entry_tem" data="{{...item}}" />
+    </view>
+    </block>
+    <view catchtap='pay_more' data-payId='paid' wx:if="{{all_pay_count-paying_count>2}}">
+      <text class='more_text'>---查看全部---</text>
+    </view>
+    <image class='kongkong' src='/image/kongkong.png' wx:if="{{all_pay_count-paying_count==0}}" />      
+  </view>
+
+
+  <view class='pay_style'>
+    <text class='pay_title_text'>未付款商品</text>
+    <block wx:key="objectId" wx:for="{{order_info_paying}}">
+    <view catchtap='detail' data-goodsId='{{item.goods_objId}}' data-orderId='{{item.objectId}}'>
+    <template is="entry_tem"  data="{{...item}}" />
+    </view>
+    </block>
+    <view catchtap='pay_more' data-payId='paying' wx:if="{{paying_count>2}}">
+      <text class='more_text'>---查看全部---</text>
+    </view>
+    <image class='kongkong' src='/image/kongkong.png' wx:if="{{paying_count==0}}" />
+  </view>
+</view>
+
+
+<!-- wx:key ="字符串" 该字符串为循环的arr的item中的某个属性名称 -->

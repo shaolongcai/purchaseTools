@@ -1,0 +1,27 @@
+/* record/more-order/more-order.wxss */
+@import "/pages/template/entry-tem/entry-tem.wxss";
+
+.data_container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 30rpx 0 20rpx 10rpx;
+}
+
+.line{
+  height: 5rpx;
+  width: 580rpx;
+  background-color: #ccc;
+  margin-left: 20rpx;
+}
+
+.date_text{
+  font-size: 24rpx;
+}
+
+.more_text{
+  margin-left: 283rpx;
+  font-size: 32rpx;  
+  position: relative;
+  top:30rpx;
+}

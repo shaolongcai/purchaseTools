@@ -1,0 +1,8 @@
+
+<template name="client_tem">
+<view class='client_container'>
+  <text class='client_name'>姓名：{{client_name}}</text>
+  <text class='client_phone'>电话：{{client_phone}}</text>
+  <text class='client_ad'>地址：{{client_address}}</text>
+</view>
+</template>

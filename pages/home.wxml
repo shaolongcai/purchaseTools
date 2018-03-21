@@ -1,0 +1,37 @@
+<!--pages/home.wxml-->
+<import src="/pages/template/goods-tem/goods-tem.wxml" />
+<import src="/pages/template/kongkong-tem/kongkong-tem.wxml" />
+
+
+<!-- 数据为空的提示 -->
+<view wx:if="{{kongkong}}">
+  <template is="kongkong_tem" />
+</view>
+
+<view class='operate_model_con' animation="{{animationData_delete}}" wx:if="{{!kongkong}}">
+  <text class='tip'>请选择你要删除的商品（最多3个）</text>
+  <view class='operate_model'>
+    <button class='delete_button' type='warn' catchtap='delete_btn'>删除</button>
+    <button class='delete_cancel' catchtap='delete_cancel'>取消</button>
+  </view>
+</view>
+
+<view class='ware_con'>
+  <block wx:key="objectId" wx:for="{{goods_data}}" wx:for-item="item" wx:for-index="id">
+    <view catchtap='onselect' data-obj-id="{{item.objectId}}" data-arr-id='{{id}}'>
+      <template is="goods-tem" data="{{...item}}" />
+    </view>
+  </block>
+</view>
+<text  class='more_text' catchtap='more_goods' wx:if="{{!kongkong}}">---查看更多---</text>
+
+
+<view class='operate'>
+  <image class='ware_img' catchtap='warehouse' src='/image/icon/ware_btn.png' />
+  <image class='upload_img'  animation="{{animationData_upload}}" wx:if="{{!delete_operate && !kongkong}}" catchtap='{{!stop_catch? "upload":""}}'  src='/image/icon/upload.png' />
+  <image class='upload_img'  src='/image/icon/upload_disable.png' wx:if="{{delete_operate && !kongkong}}" />
+  <image class='delete_img' catchtap='delete_model' animation="{{animationData}}" wx:if="{{!kongkong}}" src='/image/icon/delete.png' />
+</view>
+
+
+<!-- 备注：应该再按删除弹出确认窗,上传消失 -->

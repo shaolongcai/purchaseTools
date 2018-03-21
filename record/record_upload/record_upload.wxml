@@ -1,0 +1,68 @@
+<!--record/record_upload/record_upload.wxml-->
+<import src="/pages/template/goods-tem/goods-tem.wxml" />
+<import src="/pages/template/client-tem/client-tem.wxml" />
+<import src="/pages/template/kongkong-tem/kongkong-tem.wxml" />
+
+<!-- 数据为空的提示 -->
+<view wx:if="{{kongkong}}">
+  <template is="kongkong_tem" />
+</view>
+
+<!-- 选择商品面板 -->
+<view class='choose_goods' hidden='{{goods_hidden}}'>
+  <block wx:for="{{goods_data}}">
+    <view catchtap='onChoose_goods' data-obj-id="{{item.objectId}}" data-arr-id="{{index}}">
+      <template is="goods-tem" data="{{...item}}" />
+    </view>
+  </block>
+  <text class='more_text' catchtap='more_goods' wx:if="{{!kongkong}}">---查看更多---</text>
+</view>
+
+<!-- 选择客户面板 -->
+<view class='choose_client' hidden='{{client_hidden}}'>
+  <block wx:for="{{client_data}}">
+    <view class='client_tem' catchtap='onChoose_client' data-obj-id="{{item.objectId}}" data-arr-id="{{index}}">
+      <template is="client_tem" data="{{...item}}" />
+    </view>
+  </block>
+  <text class='more_text' catchtap='more_client' wx:if="{{!kongkong}}">---查看更多---</text>
+</view>
+
+<!-- 选择信息面板 -->
+<view class='order_from' hidden='{{!goods_hidden || !client_hidden}}'>
+  <form bindsubmit="bindsubmit">
+    <view class='modify-container'>
+
+      <!-- 选择商品 -->
+      <view class='goods-info-mod'>
+        <view class='choose-mod' catchtap='choose_goods'  data-id='goods'>
+          <text>{{goods_name}}</text>
+          <image class='choose' src='/image/icon/arrow_right.png'></image>
+        </view>
+        <!-- 选择客户 -->
+        <view class='choose-mod' catchtap='choose_client' data-id='client'>
+          <text>{{client_name}}</text>
+          <image class='choose' src='/image/icon/arrow_right.png'></image>
+        </view>
+
+        <view class='goods_num'>
+          <input name="goods_num" placeholder="商品数量：" maxlength="3" type='number'></input>
+        </view>
+
+        <view class='ifpay'>
+          <text>付费情况：</text>
+          <checkbox-group name="pay_state">
+            <checkbox value="1">邮费</checkbox>
+            <checkbox value='2'>商品费</checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+
+      <view class='bottom_button'>
+        <!-- 出发from的提交函数 -->
+        <button class='add-goods' form-type='submit' type='primary'>增加</button>
+        <button class='back' catchtap='back'>返回</button>
+      </view>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "record/record",
+    "record/record_upload/record_upload",
+    "warehouse/client_warehouse/client_warehouse",
+    "warehouse/warehouse",
+    "pages/home",
+    "pages/upload/modify/modify",
+    "record/order_detail/order_detail",
+    "record/more-order/more-order",
+    "pages/goods-detail/goods-detail",
+    "warehouse/client_warehouse/client_upload/client_upload"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "selectedColor": "#09bb07",
+    "list": [
+      {
+        "iconPath": "/image/icon/record.png",
+        "selectedIconPath": "/image/icon/record_onselect.png",
+        "pagePath": "record/record",
+        "text": "记录"
+      },
+      {
+        "iconPath": "/image/icon/warehouse.png",
+        "selectedIconPath": "/image/icon/warehouse_onselect.png",
+        "pagePath": "warehouse/warehouse",
+        "text": "仓库"
+      }
+    ]
+  }
+}

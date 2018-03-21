@@ -1,0 +1,12 @@
+
+<template name="entry_tem">
+<view class='entry_container'>
+  <image src='/image/icon/circle.png' class='circle' wx:if="{{flase}}"></image>
+  <text class='goods_name'>{{goods_name_change}}</text>
+  <!-- <image src='/image/icon/digital.png' class='goods_type'></image> -->
+  <text class='goods_amount'>数量：{{goods_num}}</text>
+  <image class='express_price' src='/image/icon/express.png' wx:if="{{pay_state[0]!=1 && pay_state[1]==null}}" ></image>
+  <image class='pay_price' src='/image/icon/pay.png' wx:if="{{pay_state[0]!=2 && pay_state[1]==null}}"></image>
+  <image src='/image/icon/arrow_right.png' class='more_detail'></image>
+</view>
+</template>

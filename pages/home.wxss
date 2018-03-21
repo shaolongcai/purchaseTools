@@ -1,0 +1,69 @@
+/* pages/home.wxss */
+@import "/pages/template/goods-tem/goods-tem.wxss";
+@import "/pages/template/kongkong-tem/kongkong-tem.wxss";
+
+page{
+  background-color: #f2f2f2
+}
+
+
+.operate_model_con{
+  border: 2rpx solid #ccc;
+  background-color: white;
+  position: fixed;
+  z-index: 3;
+  left: 25rpx;
+  width: 700rpx;
+  /* 要先给与text一个宽度100% */
+  text-align: center;
+  margin-top: -190rpx; 
+}
+
+.operate{
+  position: fixed;
+  bottom: 30rpx;
+  left: 600rpx;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.operate image{
+  height: 100rpx;
+  width: 100rpx;
+}
+
+.operate_model{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+}
+
+
+.delete_button{
+  width: 300rpx;
+  margin-bottom: 20rpx;
+  
+}
+
+.delete_cancel{
+  width: 300rpx;
+  margin-bottom: 20rpx;
+}
+
+.tip{
+  width: 100%;
+  font-size: 24rpx;
+}
+
+.more_text{
+  display: block;
+  /* 清除浮动影响,前提是块状元素 */
+  clear:both;
+  margin-top: 30rpx;
+  margin-left: 275rpx;
+  font-size: 32rpx;  
+  position: relative;
+  top:30rpx;
+}
+
