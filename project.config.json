@@ -21,13 +21,25 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "分享调试",
+					"pathName": "share-pages/share-clientAdd",
+					"query": "",
+					"scene": "1011"
+				}
+			]
 		}
 	}
 }

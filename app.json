@@ -1,5 +1,6 @@
 {
   "pages": [
+    "share-pages/share-clientAdd",
     "warehouse/client_warehouse/client_warehouse",
     "pages/ guide",
     "record/record",
@@ -10,8 +11,8 @@
     "record/order_detail/order_detail",
     "record/more-order/more-order",
     "pages/goods-detail/goods-detail",
-    "warehouse/client_warehouse/client_upload/client_upload",
-    "share-pages/share-clientAdd"
+    "warehouse/client_warehouse/client_upload/client_upload"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

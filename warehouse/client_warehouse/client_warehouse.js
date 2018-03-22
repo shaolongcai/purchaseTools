@@ -234,7 +234,7 @@ Page({
     }
     return {
       title:"转发标题",
-      path: "/pages/guide",
+      path: "/share-pages/share-clientAdd",
       success:(res=>console.log(res))
     }
   }

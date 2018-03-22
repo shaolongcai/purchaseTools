@@ -1,2 +1,14 @@
 <!--share-pages/share-clientAdd.wxml-->
-<text>share-pages/share-clientAdd.wxml</text>
+<view class='client_container'>
+  <text class='client_name'>姓名：{{client_name}}</text>
+  <text class='client_phone'>电话：{{client_phone}}</text>
+  <text class='client_ad'>地址：{{client_address}}</text>
+</view>
+
+
+<view class='add_control' >
+  <button catchtap='confirm' wx:if="{{!complate}}">确认提交</button>
+  <text class='complate_tips'wx:if="{{complate}}">地址已提交，请关闭小程序</text>
+  <button catchtap='change'  wx:if="{{!complate}}">修改地址</button>
+</view>
+
