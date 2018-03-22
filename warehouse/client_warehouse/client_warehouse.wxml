@@ -6,7 +6,7 @@
   <button class='first_button' open-type='share'>发送客户卡片</button>
   <text class='or'>OR</text>
   <text class='first_text'>上传客户收货地址</text>
-  <button class='first_button'>上传客户信息</button>
+  <button class='first_button' catchtap='u'>上传客户信息</button>
 </view>
 
 

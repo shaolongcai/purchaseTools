@@ -15,7 +15,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("客户卡片")
+    // 转发者的userID
+    console.log(options.userId)
+    this.setData({
+      userId:options.userId
+    })
     // 获取用户地址授权
     wx.authorize({
       scope: 'scope.address',
@@ -49,11 +53,14 @@ Page({
 
   confirm:function(){
     var userInfo = this.data.userInfo
-    
+    var userId = this.data.userId
+    console.log(userId)
       wx.showLoading({
         title: '正在提交中',
         mask: true
       })
+      //关联代购的userid 
+      var a = AV.Object.createWithoutData('_User', userId)
       //新增客户表
       new client({
         client_name: this.data.client_name,
@@ -61,11 +68,11 @@ Page({
         client_address: this.data.client_address,
         nickName:userInfo.nickName,
         avatarUrl:userInfo.avatarUrl,
-        gender:userInfo.gender
+        gender:userInfo.gender,
+        purchaseUser:a
       }).save()
         //保存完后再跳转，then()只能链式调用
-        .then(res => {
-          console.log(res)
+        .then(res => {      
           wx.showToast({
             title: "提交成功",
           })
