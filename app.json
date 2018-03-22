@@ -1,15 +1,17 @@
 {
   "pages": [
+    "warehouse/client_warehouse/client_warehouse",
+    "pages/ guide",
     "record/record",
     "record/record_upload/record_upload",
-    "warehouse/client_warehouse/client_warehouse",
     "warehouse/warehouse",
-    "pages/home",
+    "pages/goods_list/goods_list",
     "pages/upload/modify/modify",
     "record/order_detail/order_detail",
     "record/more-order/more-order",
     "pages/goods-detail/goods-detail",
-    "warehouse/client_warehouse/client_upload/client_upload"
+    "warehouse/client_warehouse/client_upload/client_upload",
+    "share-pages/share-clientAdd"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,12 @@
+/* pages/ guide.wxss */
+.guide{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.guide image{
+  height: 260rpx;
+  width: 644rpx;
+  margin-top: 80rpx;
+}

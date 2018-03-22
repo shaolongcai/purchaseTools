@@ -209,6 +209,34 @@ Page({
     wx.switchTab({
       url: '/warehouse/warehouse',
     })
+  },
+
+  // 客户卡片
+  client_add:function(){
+    wx.showShareMenu({
+      
+    })
+    // // 获取用户授权
+    // wx.authorize({
+    //   scope: 'scope.address',
+    //   success:(res=>{
+    //     // 用户填写地址接口
+    //     wx.chooseAddress({
+    //       success:(res=>console.log(res))
+    //     })
+    //   })
+    // })
+  },
+
+  onShareAppMessage:function(res){
+    if(res.from=="button"){
+      console.log(res)
+    }
+    return {
+      title:"转发标题",
+      path: "/pages/guide",
+      success:(res=>console.log(res))
+    }
   }
 
 })

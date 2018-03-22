@@ -1,10 +1,16 @@
 <import src="/pages/template/client-tem/client-tem.wxml" />
 <import src="/pages/template/kongkong-tem/kongkong-tem.wxml" />
 
-<view wx:if="{{kongkong}}">
-  <template is="kongkong_tem" />
+<view class='client_first' wx:if="{{kongkong}}">
+  <text class='first_text'>发送给客户填写收货地址</text>
+  <button class='first_button' open-type='share'>客户卡片</button>
+  <text class='or'>OR</text>
+  <text class='first_text'>上传客户收货地址</text>
+  <button class='first_button'>上传客户信息</button>
 </view>
 
+
+<!-- 客户列表区域 -->
 <scroll-view class='ware_con' scroll-y="true">
   <block wx:key="objectId" wx:for="{{client_data}}">
     <view class='entry'>

@@ -1,0 +1,6 @@
+<!--pages/ guide.wxml-->
+<view class='guide'>
+  <image catchtap='client' src='/image/guide_client.png'></image>
+  <image catchtap='goods' src='/image/guide_goods.png'></image>
+  <image catchtap='order' src='/image/guide_order.png'></image>
+</view>
