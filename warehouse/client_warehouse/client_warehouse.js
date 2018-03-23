@@ -92,6 +92,7 @@ Page({
       //记录开始的X坐标
       this.setData({
         starX:event.touches[0].clientX,
+        starY:event.touches[0].clientY
         }) 
     }
   },
@@ -99,25 +100,30 @@ Page({
   touchM:function(event){
     if(event.touches.length==1){
       var moveX = event.touches[0].clientX;
+      var moveY = event.touches[0].clientY;
       var disX = moveX - this.data.starX 
+      var disY = moveY - this.data.starY 
       var client_data = this.data.client_data
       var btn_width = this.data.btn_width
       var txtstyle=this.data.txtstyle
-      
-      //若距离大于0，每次移动都要做次更新
-     if(disX<0){
-        txtstyle = disX
-        //最大距离为删除按键的宽度
-        if (-disX >= btn_width){
-          txtstyle = -btn_width
+
+      console.log(disY)
+      if(disY<50){
+        //若距离大于0，每次移动都要做次更新
+        if (disX <0) {
+          txtstyle = disX
+          //最大距离为删除按键的宽度
+          if (-disX >= btn_width) {
+            txtstyle = -btn_width
+          }
         }
-      }
-    //向右移回
-     else if (disX > 0 && txtstyle!=0){
-       txtstyle = -btn_width + disX
-       if (disX >= btn_width){
-         txtstyle = 0
-       }
+        //向右移回
+        else if (disX > 0 && txtstyle != 0) {
+          txtstyle = -btn_width + disX
+          if (disX >= btn_width) {
+            txtstyle = 0
+          }
+      }  
     }
     var index = event.currentTarget.dataset.arrId
     client_data[index].attributes.txtstyle = txtstyle
