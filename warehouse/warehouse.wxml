@@ -1,5 +1,0 @@
-<!--warehouse/warehouse.wxml-->
-<view class='warehouse_container'>
-  <button class='goods_ware' catchtap='goods_ware' type="primary">商品仓</button>
-  <button class='client_ware' catchtap='client_ware' type="primary">客户仓</button>
-</view>

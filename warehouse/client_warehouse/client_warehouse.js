@@ -10,7 +10,9 @@ Page({
     btn_width:200,
     txtstyle:"left:0",
     L_index:"false",
-    kongkong:false
+    kongkong:false,
+    upload_choose:true,
+    more_text:true
   },
 
 
@@ -44,6 +46,9 @@ Page({
       if(count==0){
         this.setData({kongkong:true})
       }
+      else if(count<11){
+        this.setData({more_text:false})
+      }
       this.setData({ count })
       wx.setNavigationBarTitle({
         title: "客户库（总" + count + "）"
@@ -55,12 +60,24 @@ Page({
 
   //上传商品入口
   upload: function () {
+    this.setData({
+      upload_choose:false
+    })
     public_fn.public_fn.stop_catch(this)
-    this.animation.scale(1.1).step()
-    this.animation.scale(1).step()
-    this.setData({ animationData_upload: this.animation.export() })
-    wx.navigateTo({
+    // this.animation.scale(1.1).step()
+    // this.animation.scale(1).step()
+    // this.setData({ animationData_upload: this.animation.export() })
+  },
+
+  upload_client:function(){
+      wx.navigateTo({
       url: 'client_upload/client_upload',
+    })
+  },
+
+  cancel_upload:function(){
+    this.setData({
+      upload_choose:true
     })
   },
 
@@ -141,28 +158,21 @@ Page({
     })
     var client_data = this.data.client_data
     var skip = client_data.length
-    if (skip == this.data.count)
-    {
-      wx.hideLoading()
-      wx.showToast({
-        title: '没有咯',
-        duration:2000,
-        image:"/image/icon/warn.png"
-      })
-      
-    }
-    else{
       var query = new AV.Query("client")
       //按创造时间降序排列
       query.descending('createdAt');
-      query.limit(2)
+      query.limit(10)
       query.skip(skip)
       //需要用箭头函数去忽视this的影响,处理函数写在{}中
       query.find().then(res => {
         var client_data = this.data.client_data.concat(res)
         this.setData({ client_data })
+        //若请求回来的client_data等于总数count，则隐藏查看更多
+        if (client_data.length == this.data.count) {
+          this.setData({ more_text: false })
+        }
       }).then(wx.hideLoading())
-    }
+    
   },
 
   //删除客户信息
@@ -201,17 +211,9 @@ Page({
     })
   },
 
-  //数据为空的上传
-  upload_kong: function () {
-    wx.navigateTo({
-      url: 'client_upload/client_upload',
-    })
-  },
-
 
   onShareAppMessage:function(res){
     var userId = this.data.userId
-    console.log(userId)
     if(res.from=="button"){
       console.log(res)
     }
@@ -222,9 +224,7 @@ Page({
     }
   },
 
-  u:function(){
-    
-  }
+
 
 })
 

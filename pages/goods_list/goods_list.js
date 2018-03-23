@@ -1,6 +1,6 @@
 // pages/home.js
-const AV = require("../utils/av-webapp-min.js")
-var public_fn = require("../utils/fn.js")
+const AV = require("../../utils/av-webapp-min.js")
+var public_fn = require("../../utils/fn.js")
 
 Page({
 
@@ -269,12 +269,7 @@ Page({
     })
   },
 
-  //仓库页
-  warehouse:function(){
-    wx.switchTab({
-      url: '/warehouse/warehouse',
-    })
-  }
+ 
 })
 
 
