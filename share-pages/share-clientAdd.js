@@ -32,7 +32,6 @@ Page({
             wx.getUserInfo({
               withCredentials: true,
               success: (res => {
-                console.log(res.userInfo)
                 this.setData({
                   userInfo:res.userInfo
                 })
@@ -54,35 +53,41 @@ Page({
   confirm:function(){
     var userInfo = this.data.userInfo
     var userId = this.data.userId
-    console.log(userId)
       wx.showLoading({
         title: '正在提交中',
         mask: true
       })
       //关联代购的userid 
       var a = AV.Object.createWithoutData('_User', userId)
-      //新增客户表
-      new client({
-        client_name: this.data.client_name,
-        client_phone: this.data.client_phone,
-        client_address: this.data.client_address,
-        nickName:userInfo.nickName,
-        avatarUrl:userInfo.avatarUrl,
-        gender:userInfo.gender,
-        purchaseUser:a
-      }).save()
-        //保存完后再跳转，then()只能链式调用
-        .then(res => {      
-          wx.showToast({
-            title: "提交成功",
+      // 新建ACL权限
+      var acl = new AV.ACL()
+      var query = new AV.Query('_User');
+      query.get(userId).then(User => {
+        acl.setWriteAccess(User, true);
+        acl.setReadAccess(User, true);
+        //新增客户表
+        new client({
+          client_name: this.data.client_name,
+          client_phone: this.data.client_phone,
+          client_address: this.data.client_address,
+          nickName: userInfo.nickName,
+          avatarUrl: userInfo.avatarUrl,
+          gender: userInfo.gender,
+          purchaseUser: a
+        }).setACL(acl).save()
+          //保存完后再跳转，then()只能链式调用
+          .then(res => {
+            wx.showToast({
+              title: "提交成功",
+            })
+            wx.hideLoading()
+            this.setData({
+              complate: true
+            })
           })
-          wx.hideLoading()
-          this.setData({
-            complate:true
-          })
-        })
-        .catch(console.error);
-    
+          .catch(console.error);
+      })
+     
   },
 
   
@@ -91,7 +96,6 @@ Page({
     //用户填写地址接口
     wx.chooseAddress({
       success: (res => {
-        console.log(res)
         that.setData({
           client_name: res.userName,
           client_phone: res.telNumber,
