@@ -25,6 +25,10 @@ Page({
   },
 
   onReady: function () {
+    // 获取用户信息objId
+    var userInfo = AV.User.current()
+    this.setData({userId:userInfo.id})
+
     wx.showLoading({
       title: '读取数据中',
       mask: true
@@ -204,39 +208,22 @@ Page({
     })
   },
 
-  //仓库页
-  warehouse: function () {
-    wx.switchTab({
-      url: '/warehouse/warehouse',
-    })
-  },
-
-  // 客户卡片
-  client_add:function(){
-    wx.showShareMenu({
-      
-    })
-    // // 获取用户授权
-    // wx.authorize({
-    //   scope: 'scope.address',
-    //   success:(res=>{
-    //     // 用户填写地址接口
-    //     wx.chooseAddress({
-    //       success:(res=>console.log(res))
-    //     })
-    //   })
-    // })
-  },
 
   onShareAppMessage:function(res){
+    var userId = this.data.userId
+    console.log(userId)
     if(res.from=="button"){
       console.log(res)
     }
     return {
       title:"转发标题",
-      path: "/share-pages/share-clientAdd",
+      path: "/share-pages/share-clientAdd?userId="+userId,
       success:(res=>console.log(res))
     }
+  },
+
+  u:function(){
+    
   }
 
 })
