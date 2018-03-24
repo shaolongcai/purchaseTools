@@ -23,20 +23,7 @@ Page({
 
 
   onShow: function () {
-    //创建动画实例
-    var animation = wx.createAnimation({
-      transformOrigin: "50% 50%",
-      duration: 200,
-      timingFunction: "ease",
-    })
-    this.animation = animation
-  },
-
-  onReady: function () {
-    // 获取用户信息objId
-    var userInfo = AV.User.current()
-    this.setData({userId:userInfo.id})
-
+    console.log("show")
     wx.showLoading({
       title: '读取数据中',
       mask: true
@@ -47,13 +34,13 @@ Page({
     query.descending('createdAt');
     query.limit(10)
     //需要用箭头函数去忽视this的影响,处理函数写在{}中
-    query.find().then(client_data => this.setData({ client_data}))
+    query.find().then(client_data => this.setData({ client_data }))
     query.count().then(count => {
-      if(count==0){
-        this.setData({kongkong:true})
+      if (count == 0) {
+        this.setData({ kongkong: true })
       }
-      else if(count<11){
-        this.setData({more_text:false})
+      else if (count < 11) {
+        this.setData({ more_text: false })
       }
       this.setData({ count })
       wx.setNavigationBarTitle({
@@ -61,6 +48,12 @@ Page({
       })
     }
     ).then(wx.hideLoading())
+  },
+
+  onReady: function () {
+    // 获取用户信息objId
+    var userInfo = AV.User.current()
+    this.setData({userId:userInfo.id})
   },
 
 
@@ -73,6 +66,7 @@ Page({
     this.$wuxBackdrop.retain()
   },
 
+  // 点击加号上传
   upload_client:function(){
     wx.authorize({
       scope: 'scope.address',
@@ -101,17 +95,19 @@ Page({
                     title: "提交成功",
                   })
                   wx.hideLoading()
+                  this.$wuxBackdrop.release()
+                  this.setData({
+                    upload_choose: true
+                  })
                 })
                 .catch(console.error);
           })
         })
       })
     })
-    //   wx.navigateTo({
-    //   url: 'client_upload/client_upload',
-    // })
   },
 
+  // 点击遮罩取消上传
   cancel_upload:function(){
     this.$wuxBackdrop.release()
     this.setData({
