@@ -1,7 +1,7 @@
 {
   "pages": [
-    "share-pages/share-clientAdd",
     "warehouse/client_warehouse/client_warehouse",
+    "share-pages/share-clientAdd",
     "pages/ guide",
     "record/record",
     "record/record_upload/record_upload",
