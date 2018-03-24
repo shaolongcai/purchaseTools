@@ -33,7 +33,7 @@ Page({
               withCredentials: true,
               success: (res => {
                 this.setData({
-                  userInfo:res.userInfo
+                  userInfo: res.userInfo
                 })
               })
             })

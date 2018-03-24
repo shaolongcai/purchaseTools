@@ -1,4 +1,7 @@
+@import "/components/wux.wxss";
 @import "/pages/template/client-tem/client-tem.wxss";
+
+
 
 page{
   background-color: #f2f2f2;

@@ -1,4 +1,8 @@
+<import src="/compinents/backdrop/backdrop.wxml" />
 <import src="/pages/template/client-tem/client-tem.wxml" />
+
+  <!-- 遮罩 -->
+<view catchtap='cancel_upload' class="wux-backdrop {{ $wux.backdrop.animateCss }}" hidden="{{ !$wux.backdrop.visible }}"></view>
 
 <view class='client_first' wx:if="{{kongkong}}">
   <text class='first_text'>发送给客户填写收货地址</text>
@@ -16,11 +20,13 @@
   <text class='first_text'>上传客户收货地址</text>
   <button class='first_button' catchtap='upload_client'>上传客户信息</button>
 </view>
-  <view class='mask' hidden='{{upload_choose}}' catchtap='cancel_upload'></view> 
+  
+  
+  
 
 
 <!-- 客户列表区域 -->
-<scroll-view class='ware_con' scroll-y="true">
+<scroll-view class='ware_con'scroll-y="true">
   <block wx:key="objectId" wx:for="{{client_data}}">
     <view class='entry'>
       <view class='client_tem' style="left:{{item.txtstyle}}rpx; -webkit-transition:left {{item.ismove!=true?0.5:0}}s" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-obj-id="{{item.objectId}}" data-arr-id='{{index}}'>

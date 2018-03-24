@@ -1,6 +1,8 @@
 // pages/home.js
 const AV = require("../../utils/av-webapp-min.js")
 var public_fn = require("../../utils/fn.js")
+import { $wuxBackdrop } from '../../components/wux'
+const client = require("../../model/client-model.js")
 
 Page({
 
@@ -12,7 +14,11 @@ Page({
     L_index:"false",
     kongkong:false,
     upload_choose:true,
-    more_text:true
+    more_text:true,
+  },
+
+  onLoad:function(){
+    this.$wuxBackdrop = $wuxBackdrop.init()
   },
 
 
@@ -61,21 +67,53 @@ Page({
   //上传商品入口
   upload: function () {
     this.setData({
-      upload_choose:false
+      upload_choose:false,
     })
-    public_fn.public_fn.stop_catch(this)
-    // this.animation.scale(1.1).step()
-    // this.animation.scale(1).step()
-    // this.setData({ animationData_upload: this.animation.export() })
+    // 打开遮罩
+    this.$wuxBackdrop.retain()
   },
 
   upload_client:function(){
-      wx.navigateTo({
-      url: 'client_upload/client_upload',
+    wx.authorize({
+      scope: 'scope.address',
+      success: (res => {
+        wx.chooseAddress({
+          success:(res=>{
+            console.log(res)
+            // 关联上传的代购
+            var User = AV.User.current()
+            var a = AV.Object.createWithoutData('_User', User.id )
+            // 新建ACL权限
+            var acl = new AV.ACL()
+            var query = new AV.Query('_User');
+            acl.setWriteAccess(User , true);
+            acl.setReadAccess(User , true);
+              //新增客户表
+              new client({
+                client_name: res.userName,
+                client_phone: res.telNumber,
+                client_address: res.provinceName + res.cityName + res.countyName + res.detailInfo,
+                purchaseUser: a
+              }).setACL(acl).save()
+                //保存完后再跳转，then()只能链式调用
+                .then(res => {
+                  wx.showToast({
+                    title: "提交成功",
+                  })
+                  wx.hideLoading()
+                })
+                .catch(console.error);
+          })
+        })
+      })
     })
+    //   wx.navigateTo({
+    //   url: 'client_upload/client_upload',
+    // })
   },
 
   cancel_upload:function(){
+    this.$wuxBackdrop.release()
     this.setData({
       upload_choose:true
     })
@@ -104,29 +142,31 @@ Page({
       var disX = moveX - this.data.starX 
       var disY = moveY - this.data.starY 
       var client_data = this.data.client_data
-      var btn_width = this.data.btn_width
-      var txtstyle=this.data.txtstyle
-
-      console.log(disY)
-      if(disY<50){
+    
+      
+      var angle = this.angle(disX,disY);
+      
+      console.log(angle)
+        // Math.abs(angle) 取绝对值
+      if (Math.abs(angle)<30){
         //若距离大于0，每次移动都要做次更新
         if (disX <0) {
-          txtstyle = disX
+          this.data.txtstyle = disX
           //最大距离为删除按键的宽度
-          if (-disX >= btn_width) {
-            txtstyle = -btn_width
+          if (-disX >= this.data.btn_width) {
+            this.data.txtstyle = -this.data.btn_width
           }
         }
         //向右移回
-        else if (disX > 0 && txtstyle != 0) {
-          txtstyle = -btn_width + disX
-          if (disX >= btn_width) {
-            txtstyle = 0
+        else if (disX > 0 && this.data.txtstyle != 0) {
+          this.data.txtstyle = -this.data.btn_width + disX
+          if (disX >= this.data.btn_width) {
+            this.data.txtstyle = 0
           }
       }  
     }
     var index = event.currentTarget.dataset.arrId
-    client_data[index].attributes.txtstyle = txtstyle
+    client_data[index].attributes.txtstyle = this.data.txtstyle
     //每次移动时，将过渡效果取消
     client_data[index].attributes.ismove = true
       this.setData({
@@ -230,6 +270,11 @@ Page({
     }
   },
 
+  // 计算角度函数
+  angle: function (disX,disY) {
+    //返回角度 /Math.atan()返回数字的反正切值
+    return 360 * Math.atan(disY / disX) / (2 * Math.PI);
+  },
 
 
 })
