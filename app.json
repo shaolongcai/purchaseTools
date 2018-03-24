@@ -1,17 +1,15 @@
 {
   "pages": [
-    "warehouse/client_warehouse/client_warehouse",
+    "pages/ guide",
+    "pages/client_warehouse/client_warehouse",
     "pages/goods_list/goods_list",
     "share-pages/share-clientAdd",
-    "pages/ guide",
     "record/record",
     "record/record_upload/record_upload",
     "pages/upload/modify/modify",
     "record/order_detail/order_detail",
     "record/more-order/more-order",
-    "pages/goods-detail/goods-detail",
-    "warehouse/client_warehouse/client_upload/client_upload"
-    
+    "pages/goods-detail/goods-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -32,7 +30,7 @@
       {
         "iconPath": "/image/icon/warehouse.png",
         "selectedIconPath": "/image/icon/warehouse_onselect.png",
-        "pagePath": "warehouse/client_warehouse/client_warehouse",
+        "pagePath": "pages/client_warehouse/client_warehouse",
         "text": "客户列表"
       },
       {

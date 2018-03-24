@@ -1,4 +1,3 @@
 <template name="backdrop">
-  <text>asdasdasdasdasdasdasd</text>
 	<view class="wux-backdrop {{ animateCss }}" hidden="{{ !visible }}"></view>
 </template>

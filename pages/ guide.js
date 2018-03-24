@@ -16,8 +16,8 @@ Page({
   },
 
   client:function(){
-    wx.redirectTo({
-      url: '/warehouse/client_warehouse/client_warehouse',
+    wx.switchTab({
+      url: '/pages/client_warehouse/client_warehouse',
     })
   }
 })
