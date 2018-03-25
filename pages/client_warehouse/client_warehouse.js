@@ -23,7 +23,6 @@ Page({
 
 
   onShow: function () {
-    console.log("show")
     wx.showLoading({
       title: '读取数据中',
       mask: true
@@ -252,7 +251,6 @@ Page({
       }
     })
   },
-
 
   onShareAppMessage:function(res){
     var userId = this.data.userId

@@ -19,7 +19,7 @@
   },
   "tabBar": {
     "borderStyle": "white",
-    "selectedColor": "#09bb07",
+    "selectedColor": " #4AA8FE",
     "list": [
       {
         "iconPath": "/image/icon/record.png",
@@ -28,14 +28,14 @@
         "text": "订单列表"
       },
       {
-        "iconPath": "/image/icon/warehouse.png",
-        "selectedIconPath": "/image/icon/warehouse_onselect.png",
+        "iconPath": "/image/icon/client.png",
+        "selectedIconPath": "/image/icon/client_onselect.png",
         "pagePath": "pages/client_warehouse/client_warehouse",
         "text": "客户列表"
       },
       {
-        "iconPath": "/image/icon/record.png",
-        "selectedIconPath": "/image/icon/record_onselect.png",
+        "iconPath": "/image/icon/goods.png",
+        "selectedIconPath": "/image/icon/goods_onselect.png",
         "pagePath": "pages/goods_list/goods_list",
         "text": "商品列表"
       }

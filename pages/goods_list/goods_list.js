@@ -265,7 +265,7 @@ Page({
   //空数据上传
   upload_kong:function(){
     wx.navigateTo({
-      url: 'upload/modify/modify',
+      url: '/pages/upload/modify/modify',
     })
   },
 

@@ -27,7 +27,6 @@
 
 
 <view class='operate'>
-  <image class='ware_img' catchtap='warehouse' src='/image/icon/ware_btn.png' />
   <image class='upload_img'  animation="{{animationData_upload}}" wx:if="{{!delete_operate && !kongkong}}" catchtap='{{!stop_catch? "upload":""}}'  src='/image/icon/upload.png' />
   <image class='upload_img'  src='/image/icon/upload_disable.png' wx:if="{{delete_operate && !kongkong}}" />
   <image class='delete_img' catchtap='delete_model' animation="{{animationData}}" wx:if="{{!kongkong}}" src='/image/icon/delete.png' />

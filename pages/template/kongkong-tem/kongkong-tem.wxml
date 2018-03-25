@@ -2,7 +2,6 @@
 <template name="kongkong_tem">
   <view class='tips'>
     <image class='kongkong'  src='/image/kongkong.png' />
-    <text class='tips_text'>反正亦是\n空空如也\n不妨先上传吧</text>
-     <button class='tips_button' type='primary' catchtap='upload_kong'>上传</button> 
+     <button class='tips_button'  catchtap='upload_kong'>上传</button> 
   </view>
 </template>

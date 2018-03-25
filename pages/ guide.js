@@ -19,5 +19,17 @@ Page({
     wx.switchTab({
       url: '/pages/client_warehouse/client_warehouse',
     })
+  },
+
+  goods:function(){
+    wx.switchTab({
+      url: '/pages/goods_list/goods_list',
+    })
+  },
+
+  order:function(){
+    wx.switchTab({
+      url: '/record/record',
+    })
   }
 })
