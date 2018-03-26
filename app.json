@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/ guide",
     "pages/client_warehouse/client_warehouse",
-    "pages/goods_list/goods_list",
     "share-pages/share-clientAdd",
+    "pages/upload/modify/modify",
+    "pages/ guide",
+    
+    "pages/goods_list/goods_list",
     "record/record",
     "record/record_upload/record_upload",
-    "pages/upload/modify/modify",
     "record/order_detail/order_detail",
     "record/more-order/more-order",
     "pages/goods-detail/goods-detail"

@@ -79,6 +79,8 @@ page{
 .add-goods{
   margin-top: 50rpx;
   width: 300rpx;
+  background-color: #4AA8FE;
+  color: white
 }
 
 .back{

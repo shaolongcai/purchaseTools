@@ -138,7 +138,7 @@ Page({
         data: goods,
       })
       wx.navigateTo({
-        url: 'goods-detail/goods-detail',
+        url: '../goods-detail/goods-detail',
       })
     }
 

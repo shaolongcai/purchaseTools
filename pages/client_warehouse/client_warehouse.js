@@ -1,6 +1,5 @@
 // pages/home.js
 const AV = require("../../utils/av-webapp-min.js")
-var public_fn = require("../../utils/fn.js")
 import { $wuxBackdrop } from '../../components/wux'
 const client = require("../../model/client-model.js")
 
@@ -56,7 +55,7 @@ Page({
   },
 
 
-  //上传商品入口
+ 
   upload: function () {
     this.setData({
       upload_choose:false,
@@ -96,7 +95,8 @@ Page({
                   wx.hideLoading()
                   this.$wuxBackdrop.release()
                   this.setData({
-                    upload_choose: true
+                    upload_choose: true,
+                    kongkong:false
                   })
                 })
                 .catch(console.error);

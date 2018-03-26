@@ -1,6 +1,7 @@
 // pages/upload/modify/modify.js
 const AV = require("../../../utils/av-webapp-min.js")
 const goods = require("../../../model/goods-model.js")
+var public_fn = require("../../../utils/fn.js")
 
 Page({
 
@@ -31,12 +32,15 @@ Page({
 
   //添加数据到lendcloud上
  bindsubmit:function(event){
+   var goods_from = event.detail.value
    var goods_name = event.detail.value.goods_name
    var goods_price = event.detail.value.goods_price
    var goods_cost = event.detail.value.goods_cost
    var goods_brief = event.detail.value.goods_brief
 
-   if (goods_name == "" || goods_price == "" || this.data.imgUrl[0] =="/image/icon/chose_img2.png"){
+   var v = public_fn.public_fn.check_from(goods_from)
+  console.log(v)
+   if (v=="stop" || this.data.imgUrl[0] =="/image/icon/chose_img2.png"){
      wx.showToast({
        title:"请输入完整信息",
        image:"/image/icon/warn.png",
@@ -77,7 +81,7 @@ Page({
             }
             else{
               wx.reLaunch({
-                url: '/pages/home',
+                url: '/pages/goods_list/goods_list',
               })
             }
           }) 
