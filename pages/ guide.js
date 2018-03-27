@@ -1,4 +1,6 @@
 // pages/ guide.js
+const AV = require("../utils/av-webapp-min.js")
+
 Page({
 
   /**
@@ -12,7 +14,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    const user = AV.User.current();
+    console.log(user)
   },
 
   client:function(){

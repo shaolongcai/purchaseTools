@@ -49,65 +49,57 @@ Page({
        
   },
 
-  confirm:function(){
+  confirm: function () {
     wx.getUserInfo({
       withCredentials: true,
       success: (res => {
-        console.log("success")
-        wx.getSetting({
-          success: (res => {
-            console.log(res.authSetting["scope.address"])
-            if (res.authSetting["scope.address"] == true && this.data.from_check == true) {
-              var userId = this.data.userId
-              wx.showLoading({
-                title: '正在提交中',
-                mask: true
-              })
-              //关联代购的userid 
-              var a = AV.Object.createWithoutData('_User', userId)
-              // 新建ACL权限
-              var acl = new AV.ACL()
-              var query = new AV.Query('_User');
-              query.get(userId).then(User => {
-                acl.setWriteAccess(User, true);
-                acl.setReadAccess(User, true);
-                //新增客户表
-                new client({
-                  client_name: this.data.client_name,
-                  client_phone: this.data.client_phone,
-                  client_address: this.data.client_address,
-                  nickName: res.userInfo.nickName,
-                  avatarUrl: res.userInfo.avatarUrl,
-                  gender: res.userInfo.gender,
-                  purchaseUser: a
-                }).setACL(acl).save()
-                  //保存完后再跳转，then()只能链式调用
-                  .then(res => {
-                    wx.showToast({
-                      title: "提交成功",
-                    })
-                    wx.hideLoading()
-                    this.setData({
-                      complate: true
-                    })
-                  })
-                  .catch(console.error);
-              })
-            }
-            else if (this.data.from_check == "") {
-              wx.showToast({
-                title: '请选择地址',
-                image: "/image/icon/warn.png"
-              })
-            }
-            else {
-              this.fail_auth()
-            }
+        if (this.data.from_check == true) {
+          var userId = this.data.userId
+          wx.showLoading({
+            title: '正在提交中',
+            mask: true
           })
-        })
+          //关联代购的userid 
+          var a = AV.Object.createWithoutData('_User', userId)
+          console.log("acl")
+          // 新建ACL权限
+          var acl = new AV.ACL()
+          var query = new AV.Query('_User');
+          query.get(userId).then(User => {
+            acl.setWriteAccess(User, true);
+            acl.setReadAccess(User, true);
+            //新增客户表
+            new client({
+              client_name: this.data.client_name,
+              client_phone: this.data.client_phone,
+              client_address: this.data.client_address,
+              nickName: res.userInfo.nickName,
+              avatarUrl: res.userInfo.avatarUrl,
+              gender: res.userInfo.gender,
+              purchaseUser: a
+            }).setACL(acl).save()
+              //保存完后再跳转，then()只能链式调用
+              .then(res => {
+                wx.showToast({
+                  title: "提交成功",
+                })
+                wx.hideLoading()
+                this.setData({
+                  complate: true
+                })
+              })
+              .catch(console.error);
+          })
+        }
+        else {
+          wx.showToast({
+            title: '请选择地址',
+            image: "/image/icon/warn.png"
+          })
+        }
       }),
-      fail:(()=>{this.fail_auth()})
-    })  
+      fail: (() => { this.fail_auth() })
+    })
   },
 
   // 拒绝授权的回调函数

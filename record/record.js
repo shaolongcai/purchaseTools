@@ -15,7 +15,7 @@ Page({
           success: (userInfo => {
             const user = AV.User.current();
             user.set(userInfo).save().then(user =>
-              this.setData({ user })
+              this.setData({user})
             )
           })
         })

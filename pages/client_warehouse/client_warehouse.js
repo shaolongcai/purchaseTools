@@ -258,7 +258,8 @@ Page({
       console.log(res)
     }
     return {
-      title:"转发标题",
+      title:"填写客户信息",
+      imageUrl:"/image/client_group.png",	
       path: "/share-pages/share-clientAdd?userId="+userId,
       success:(res=>console.log(res))
     }
