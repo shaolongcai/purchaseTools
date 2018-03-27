@@ -1,4 +1,6 @@
 // pages/ guide.js
+const AV = require("../utils/av-webapp-min.js")
+
 Page({
 
   /**
@@ -12,12 +14,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const user = AV.User.current();
+    console.log(user)
   },
 
   client:function(){
-    wx.redirectTo({
-      url: '/warehouse/client_warehouse/client_warehouse',
+    wx.switchTab({
+      url: '/pages/client_warehouse/client_warehouse',
+    })
+  },
+
+  goods:function(){
+    wx.switchTab({
+      url: '/pages/goods_list/goods_list',
+    })
+  },
+
+  order:function(){
+    wx.switchTab({
+      url: '/record/record',
     })
   }
 })

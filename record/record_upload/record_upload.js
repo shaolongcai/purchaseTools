@@ -184,8 +184,8 @@ Page({
       })
     }
     else {
-      wx.navigateTo({
-        url: "/warehouse/client_warehouse/client_upload/client_upload?choose_id=client"
+      wx.switchTab({
+        url: "/pages/client_warehouse/client_warehouse"
       })
     }
   },

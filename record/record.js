@@ -7,7 +7,20 @@ Page({
   data: {},
 
   onLoad:function(){
-    
+    //授权请求
+    wx.authorize({
+      scope: "scope.userInfo",
+      success: (res => {
+        wx.getUserInfo({
+          success: (userInfo => {
+            const user = AV.User.current();
+            user.set(userInfo).save().then(user =>
+              this.setData({user})
+            )
+          })
+        })
+      })
+    })
   },
 
   onReady: function () {

@@ -1,6 +1,6 @@
 // pages/home.js
-const AV = require("../utils/av-webapp-min.js")
-var public_fn = require("../utils/fn.js")
+const AV = require("../../utils/av-webapp-min.js")
+var public_fn = require("../../utils/fn.js")
 
 Page({
 
@@ -138,7 +138,7 @@ Page({
         data: goods,
       })
       wx.navigateTo({
-        url: 'goods-detail/goods-detail',
+        url: '../goods-detail/goods-detail',
       })
     }
 
@@ -265,16 +265,11 @@ Page({
   //空数据上传
   upload_kong:function(){
     wx.navigateTo({
-      url: 'upload/modify/modify',
+      url: '/pages/upload/modify/modify',
     })
   },
 
-  //仓库页
-  warehouse:function(){
-    wx.switchTab({
-      url: '/warehouse/warehouse',
-    })
-  }
+ 
 })
 
 

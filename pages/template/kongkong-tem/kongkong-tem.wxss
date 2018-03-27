@@ -22,5 +22,7 @@
 
 .tips_button{
   margin-top: 20rpx;
-  width: 400rpx
+  width: 400rpx;
+  background-color: #4AA8FE;
+  color: white
 }

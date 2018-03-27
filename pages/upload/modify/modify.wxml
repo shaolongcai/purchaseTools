@@ -13,11 +13,11 @@
   
     <view class='goods-info-mod'>
       <view class='goods-name-mod' >
-        <input placeholder="商品名称（必填）：" name="goods_name"  maxlength="15" ></input>
+        <input placeholder="商品名称：" name="goods_name"  maxlength="15" ></input>
       </view>
 
       <view class='goods-price-mod' >
-        <input placeholder="售价（必填）：" type="number" name="goods_price"  maxlength="3" ></input>
+        <input placeholder="售价：" type="number" name="goods_price"  maxlength="3" ></input>
       </view>
 
       <view class='goods-discount-mod'>
@@ -31,7 +31,7 @@
     <text class='warn_text'>数据仅用于此小程序，并仅上传者可读写。</text>
 
     <view class='bottom_button'>
-      <button class='add-goods' formType="submit" type='primary' >增加</button>
+      <button class='add-goods' formType="submit"  >增加</button>
       <button class='back' catchtap='back'>返回</button>
     </view>
 

@@ -1,19 +1,20 @@
 {
   "pages": [
 
+
     "warehouse/client_warehouse/client_warehouse",
     "share-pages/share-clientAdd",
+
     "pages/ guide",
+    "pages/client_warehouse/client_warehouse",
+    "share-pages/share-clientAdd",
+    "pages/upload/modify/modify",
+    "pages/goods_list/goods_list",
     "record/record",
     "record/record_upload/record_upload",
-    "warehouse/warehouse",
-    "pages/goods_list/goods_list",
-    "pages/upload/modify/modify",
     "record/order_detail/order_detail",
     "record/more-order/more-order",
-    "pages/goods-detail/goods-detail",
-    "warehouse/client_warehouse/client_upload/client_upload"
-    
+    "pages/goods-detail/goods-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,19 +24,25 @@
   },
   "tabBar": {
     "borderStyle": "white",
-    "selectedColor": "#09bb07",
+    "selectedColor": " #4AA8FE",
     "list": [
       {
         "iconPath": "/image/icon/record.png",
         "selectedIconPath": "/image/icon/record_onselect.png",
         "pagePath": "record/record",
-        "text": "记录"
+        "text": "订单列表"
       },
       {
-        "iconPath": "/image/icon/warehouse.png",
-        "selectedIconPath": "/image/icon/warehouse_onselect.png",
-        "pagePath": "warehouse/warehouse",
-        "text": "仓库"
+        "iconPath": "/image/icon/client.png",
+        "selectedIconPath": "/image/icon/client_onselect.png",
+        "pagePath": "pages/client_warehouse/client_warehouse",
+        "text": "客户列表"
+      },
+      {
+        "iconPath": "/image/icon/goods.png",
+        "selectedIconPath": "/image/icon/goods_onselect.png",
+        "pagePath": "pages/goods_list/goods_list",
+        "text": "商品列表"
       }
     ]
   }
