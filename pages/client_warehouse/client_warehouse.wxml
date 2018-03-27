@@ -1,4 +1,3 @@
-<import src="/compinents/backdrop/backdrop.wxml" />
 <import src="/pages/template/client-tem/client-tem.wxml" />
 
   <!-- 遮罩 -->

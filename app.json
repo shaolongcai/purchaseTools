@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/ guide",
-    "pages/client_warehouse/client_warehouse",
     "share-pages/share-clientAdd",
+    "pages/client_warehouse/client_warehouse",
     "pages/upload/modify/modify",
     "pages/goods_list/goods_list",
     "record/record",

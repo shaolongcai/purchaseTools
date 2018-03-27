@@ -2,8 +2,8 @@ const AV = require("utils/av-webapp-min.js")
 
 //初始化AV参数
 AV.init({
-  appId: '9BXdYA2d4EXJ5mFwJlzKfQ4Q-gzGzoHsz',
-  appKey: 'kGjiJTiTVkWjUUQ5EyJ41hKD',
+  appId: 'YgyswTaGxnYyArdK3vyWRvTY-gzGzoHsz',
+  appKey: '5eNNV98UPC7y7kq15JIcHxc4',
 })
 
 App({

@@ -259,7 +259,7 @@ Page({
     }
     return {
       title:"填写客户信息",
-      imageUrl:"/image/client_group.png",	
+      imageUrl:"/image/client_group.jpg",	
       path: "/share-pages/share-clientAdd?userId="+userId,
       success:(res=>console.log(res))
     }
