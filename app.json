@@ -1,10 +1,5 @@
 {
   "pages": [
-
-
-    "warehouse/client_warehouse/client_warehouse",
-    "share-pages/share-clientAdd",
-
     "pages/ guide",
     "pages/client_warehouse/client_warehouse",
     "share-pages/share-clientAdd",

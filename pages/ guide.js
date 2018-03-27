@@ -1,5 +1,4 @@
 // pages/ guide.js
-const AV = require("../utils/av-webapp-min.js")
 
 Page({
 
@@ -14,8 +13,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const user = AV.User.current();
-    console.log(user)
+    // 用缓存判断是否第一次进入
+    wx.getStorage({
+      key: 'first_coming',
+      success: function(res) {
+        wx.switchTab({
+          url: '/record/record',
+        })
+      },
+      fail:function(){
+        wx.setStorage({
+          key: 'first_coming',
+          data: 'true',
+        })
+      }
+    })
   },
 
   client:function(){
