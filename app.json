@@ -19,7 +19,7 @@
   },
   "tabBar": {
     "borderStyle": "white",
-    "selectedColor": " #4AA8FE",
+    "selectedColor": "#4AA8FE",
     "list": [
       {
         "iconPath": "/image/icon/record.png",
