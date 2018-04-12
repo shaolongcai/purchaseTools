@@ -16,9 +16,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 转发者的userID
-    var that=this
-    console.log(options.userId)
+    var that = this
+    // 用缓存判断是否为代购（第一次进入）
+    wx.getStorage({
+      key: 'first_coming',
+      success: function(res) {
+        that.setData({
+          first_coming:true
+        })
+      },
+      fail:function(){
+        that.setData({
+          first_coming:false
+        })
+      }
+    })
+    // 设置转发者的userID
     this.setData({
       userId:options.userId
     })
@@ -45,8 +58,7 @@ Page({
           this.fail_auth()
         )
       })
-    })
-       
+    })    
   },
 
   confirm: function () {
@@ -130,6 +142,12 @@ Page({
           client_address: res.provinceName + res.cityName + res.countyName + res.detailInfo
         })
       })
+    })
+  },
+
+  home:function(){
+    wx.switchTab({
+      url: '/record/record',
     })
   }
 

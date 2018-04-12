@@ -12,3 +12,7 @@
   <button catchtap='change'  wx:if="{{!complate}}">修改地址</button>
 </view>
 
+<view >
+  <image catchtap='home' wx:if="{{first_coming}}" class='guide' src='/image/icon/ware_btn.png'></image>
+</view>
+

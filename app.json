@@ -1,11 +1,5 @@
 {
   "pages": [
-
-
-    "warehouse/client_warehouse/client_warehouse",
-    "share-pages/share-clientAdd",
-
-    "pages/ guide",
     "pages/client_warehouse/client_warehouse",
     "share-pages/share-clientAdd",
     "pages/upload/modify/modify",
@@ -14,7 +8,8 @@
     "record/record_upload/record_upload",
     "record/order_detail/order_detail",
     "record/more-order/more-order",
-    "pages/goods-detail/goods-detail"
+    "pages/goods-detail/goods-detail",
+    "pages/contact/contact"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,14 +19,8 @@
   },
   "tabBar": {
     "borderStyle": "white",
-    "selectedColor": " #4AA8FE",
+    "selectedColor": "#4AA8FE",
     "list": [
-      {
-        "iconPath": "/image/icon/record.png",
-        "selectedIconPath": "/image/icon/record_onselect.png",
-        "pagePath": "record/record",
-        "text": "订单列表"
-      },
       {
         "iconPath": "/image/icon/client.png",
         "selectedIconPath": "/image/icon/client_onselect.png",
@@ -43,6 +32,18 @@
         "selectedIconPath": "/image/icon/goods_onselect.png",
         "pagePath": "pages/goods_list/goods_list",
         "text": "商品列表"
+      },
+      {
+        "iconPath": "/image/icon/record.png",
+        "selectedIconPath": "/image/icon/record_onselect.png",
+        "pagePath": "record/record",
+        "text": "订单列表"
+      },
+      {
+        "iconPath": "/image/icon/contact.png",
+        "selectedIconPath": "/image/icon/contact_onselect.png",
+        "pagePath": "pages/contact/contact",
+        "text": "联系我们"
       }
     ]
   }

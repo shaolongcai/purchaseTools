@@ -1,0 +1,27 @@
+/* pages/contact/contact.wxss */
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.contact_text{
+  margin-top: 200rpx;
+  font-size: 28rpx;
+}
+
+.contact_info{
+  margin-top: 30rpx;
+}
+
+.tips{
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+.code{
+  margin-top: 50rpx;
+  /* width: 300rpx;
+  height: 300rpx; */
+}
