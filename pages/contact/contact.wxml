@@ -1,0 +1,7 @@
+<!--pages/contact/contact.wxml-->
+<view class='contact'>
+  <text class='contact_text'>欢迎大家联系我，反馈各种建议</text>
+  <text class="contact_info" selectable="true">微信账号：caibao8425</text>
+  <text class='tips'>(长按复制添加微信账号)</text>
+  <image catchtap="longtap" class='code' src='/image/icon/contact_code.jpg'></image>
+</view>
