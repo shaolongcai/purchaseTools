@@ -14,6 +14,7 @@ Page({
     kongkong:false,
     upload_choose:true,
     more_text:true,
+    ware_con:0
   },
 
   onLoad:function(){
@@ -38,7 +39,15 @@ Page({
         this.setData({ kongkong: true })
       }
       else if (count < 11) {
-        this.setData({ more_text: false })
+        this.setData({ 
+          more_text: false,
+          ware_con:1208
+         })
+      }
+      else{
+        this.setData({
+          ware_con:1208
+        })
       }
       this.setData({ count })
       wx.setNavigationBarTitle({
@@ -132,16 +141,13 @@ Page({
 
   touchM:function(event){
     if(event.touches.length==1){
-      var moveX = event.touches[0].clientX;
-      var moveY = event.touches[0].clientY;
-      var disX = moveX - this.data.starX 
-      var disY = moveY - this.data.starY 
-      var client_data = this.data.client_data
-    
-      
+      // var moveX = event.touches[0].clientX;
+      // var moveY = event.touches[0].clientY;
+      var disX = event.touches[0].clientX - this.data.starX 
+      var disY = event.touches[0].clientY - this.data.starY 
+      // var client_data = this.data.client_data
+
       var angle = this.angle(disX,disY);
-      
-      console.log(angle)
         // Math.abs(angle) 取绝对值
       if (Math.abs(angle)<30){
         //若距离大于0，每次移动都要做次更新
@@ -161,11 +167,11 @@ Page({
       }  
     }
     var index = event.currentTarget.dataset.arrId
-    client_data[index].attributes.txtstyle = this.data.txtstyle
+    this.data.client_data[index].attributes.txtstyle = this.data.txtstyle
     //每次移动时，将过渡效果取消
-    client_data[index].attributes.ismove = true
+    this.data.client_data[index].attributes.ismove = true
       this.setData({
-        client_data
+        client_data: this.data.client_data
       })
     }
   },
@@ -238,7 +244,10 @@ Page({
           var count = that.data.count-1
           console.log(count)
           if (count == 0) {
-            that.setData({ kongkong: true })
+            that.setData({ 
+            kongkong: true,
+            ware_con:0 
+            })
           }
           that.setData({
             client_data: client_data,

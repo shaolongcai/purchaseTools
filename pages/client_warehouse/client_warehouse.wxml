@@ -8,27 +8,25 @@
   <button class='first_button' open-type='share'>发送客户卡片</button>
   <text class='or'>OR</text>
   <text class='first_text'>上传客户收货地址</text>
-  <button class='first_button' catchtap='upload_client'>上传客户信息</button>
+  <button class='first_button'  catchtap='upload_client'>上传客户信息</button>
 </view>
 
 <!-- 上传选择 -->
-<view class='upload_choose' hidden='{{upload_choose}}'>
+<!-- <view class='upload_choose' hidden='{{upload_choose}}'>
   <text class='first_text'>发送给客户填写收货地址</text>
   <button class='first_button' open-type='share'>发送客户卡片</button>
   <text class='or'>OR</text>
   <text class='first_text'>上传客户收货地址</text>
-  <button class='first_button' catchtap='upload_client'>上传客户信息</button>
-</view>
-  
-  
-  
+  <button class='first_button'  catchtap='upload_client'>上传客户信息</button>
+</view>  -->
 
 
 <!-- 客户列表区域 -->
-<scroll-view class='ware_con'scroll-y="true">
+<scroll-view class='ware_con'scroll-y="true" style='height:{{ware_con}}rpx'>
+  <button class='share_button' wx:if="{{!kongkong}}"  open-type='share'>发送客户卡片</button>
   <block wx:key="objectId" wx:for="{{client_data}}">
     <view class='entry'>
-      <view class='client_tem' style="left:{{item.txtstyle}}rpx; -webkit-transition:left {{item.ismove!=true?0.5:0}}s" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-obj-id="{{item.objectId}}" data-arr-id='{{index}}'>
+      <view class='client_tem' style="left:{{item.txtstyle}}rpx; -webkit-transition:left {{item.ismove!=true?0.5:0}}s" catchtouchstart="touchS" catchtouchmove="touchM" catchtouchend="touchE" data-obj-id="{{item.objectId}}" data-arr-id='{{index}}'>
         <template is="client_tem" data="{{...item}}" />
       </view>
       <view class='delete' style="left:{{item.txtstyle}}rpx;height:{{item.client_address.length>24?202:155}}rpx;line-height:{{item.client_address.length>24?202:155}}rpx;-webkit-transition:left {{item.ismove!=true?0.5:0}}s" catchtap='det_client' data-obj-id="{{item.objectId}}"
@@ -44,7 +42,7 @@
   <!-- <button class='share_client' open-type='share' plain="true">
     <image class='share_img' src='/image/icon/upload.png'></image>
   </button> -->
-  <image  wx:if="{{!delete_operate}}" catchtap='{{!stop_catch? "upload":""}}' class='upload_img' src='/image/icon/upload.png' />
+  <image  wx:if="{{!delete_operate}}" catchtap='upload_client' class='upload_img' src='/image/icon/upload.png' />
 </view>
 
 

@@ -45,10 +45,21 @@ button[plain]{ border:0;}
   margin-top: 20rpx;
 }
 
-.ware_con{
-  height: 1208rpx;
+
+.share_button{
+  width: 700rpx;
+  position: fixed;
+  z-index: 4000;
+  top: 20rpx;
+  left:25rpx;
+  background-color: #4AA8FE;
+  color: white 
 }
 
+.ware_con{
+  align-items: center;
+  margin-top: 130rpx;
+}
 
 .client_tem{
   margin-right:0 ;
@@ -84,7 +95,7 @@ button[plain]{ border:0;}
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 300rpx;
+  padding-top: 300rpx;
 }
 
 /* 空时的按键样式 */
@@ -95,11 +106,12 @@ button[plain]{ border:0;}
 }
 
 .first_button{
-  background-color: #4AA8FE;
+  background-color: #4AA8FE; 
   color: white;
   width: 400rpx;
   margin-top: 10rpx;
 }
+
 
 .or{
   font-size:38rpx;
@@ -117,7 +129,7 @@ button[plain]{ border:0;}
   width: 600rpx;
   background-color: white;
   position: absolute;
-  z-index: 1001
+  z-index: 1001;
 }
 
 .mask{
