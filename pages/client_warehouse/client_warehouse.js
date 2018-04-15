@@ -281,6 +281,28 @@ Page({
   },
 
 
+  // 搜索栏
+  search:function(){
+    this.setData({
+      isSearch:true
+    })
+
+    // 获取输入栏value
+    var search_value =this.data.search_value
+    // 根据value请求服务器
+    var query = new AV.Query("client")
+    query.contains('client_name', search_value)
+    query.find().then(res=>console.log(res))
+  },
+
+  bindinput:function(event){
+    console.log(event.detail.value)
+    var value = event.detail.value
+    this.setData({
+      search_value:value
+    })
+  }
+
 })
 
 
