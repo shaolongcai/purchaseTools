@@ -281,18 +281,23 @@ Page({
   },
 
 
-  // 搜索栏
+  // 打开搜索栏
   search:function(){
     this.setData({
       isSearch:true
     })
 
-    // 获取输入栏value
-    var search_value =this.data.search_value
+    
+  },
+
+  // 触发搜索请求服务器
+  bindconfirm:function(event){
+    console.log(event)
+    var search_v = event.detail.value
     // 根据value请求服务器
     var query = new AV.Query("client")
-    query.contains('client_name', search_value)
-    query.find().then(res=>console.log(res))
+    query.contains('client_name', search_v)
+    query.find().then(res => console.log(res))
   },
 
   bindinput:function(event){

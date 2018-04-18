@@ -148,3 +148,16 @@ button[plain]{ border:0;}
   width: 600rpx;
   height: 50rpx;
 }
+
+.search{
+  height: 100rpx;
+  width: 100rpx
+}
+
+.search_bg{
+  height: 100rpx;
+  width: 750rpx;
+  background-color: red;
+  z-index: 4000;
+  position: absolute
+}
